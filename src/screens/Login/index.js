@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {Container, PrimaryButton, PrimaryInput} from '../../components';
 import CheckBox from '@react-native-community/checkbox';
 import {styles} from './styles';
+import {strings} from '../../strings';
 
 export const Login = ({navigation}) => {
   const [switchTabs, SetSwitchTabs] = useState(true);
@@ -49,7 +50,7 @@ export const Login = ({navigation}) => {
           style={[styles.switcherBtn, switchTabs && styles.activeSwitcher]}
           activeOpacity={0.8}>
           <Text numberOfLines={1} style={styles.switcherTxt}>
-            Log in
+            {strings.login}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -57,7 +58,7 @@ export const Login = ({navigation}) => {
           style={[styles.switcherBtn, !switchTabs && styles.activeSwitcher]}
           activeOpacity={0.8}>
           <Text numberOfLines={1} style={styles.switcherTxt}>
-            Register
+            {strings.register}
           </Text>
         </TouchableOpacity>
       </View>
@@ -81,7 +82,7 @@ export const Login = ({navigation}) => {
               onValueChange={toggleRem => setTogglePasswordRem(toggleRem)}
             />
             <Text numberOfLines={1} style={styles.toggleTxtStyle}>
-              Remember Password
+              {strings.rememberPassword}
             </Text>
           </View>
           <PrimaryButton
@@ -116,7 +117,7 @@ export const Login = ({navigation}) => {
               onValueChange={toggleTerm => setToggleTerms(toggleTerm)}
             />
             <Text numberOfLines={1} style={styles.toggleTxtStyle}>
-              I agree to the Terms and Conditions
+              {strings.terms}
             </Text>
           </View>
           <PrimaryButton

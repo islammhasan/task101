@@ -25,11 +25,15 @@ export const Profile = ({route}) => {
           style={styles.profilePicStyle}
           source={images.profile}
         />
-        <Text style={styles.userNameText}>
+        <Text numberOfLines={1} style={styles.userNameText}>
           {loginUser || regUser || strings.defaultName}
         </Text>
-        <Text style={styles.infoText}>{strings.defaultBio}</Text>
-        <Text style={styles.infoText}>{strings.defaultLocation}</Text>
+        <Text numberOfLines={1} style={styles.infoText}>
+          {strings.defaultBio}
+        </Text>
+        <Text numberOfLines={1} style={styles.infoText}>
+          {strings.defaultLocation}
+        </Text>
         <View style={styles.detailsContainer}>
           <SingleInsight title={strings.photosTitle} />
           <SingleInsight title={strings.followersTitle} />

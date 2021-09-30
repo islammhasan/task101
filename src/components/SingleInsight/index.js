@@ -7,8 +7,12 @@ import {strings} from '../../strings';
 export const SingleInsight = ({title, num}) => {
   return (
     <View style={styles.singleColStyle}>
-      <Text style={styles.colTitle}>{title}</Text>
-      <Text style={styles.colInfo}>{num || strings.defaultInsightNum}</Text>
+      <Text numberOfLines={1} style={styles.colTitle}>
+        {title}
+      </Text>
+      <Text numberOfLines={1} style={styles.colInfo}>
+        {num || strings.defaultInsightNum}
+      </Text>
     </View>
   );
 };

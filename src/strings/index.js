@@ -6,4 +6,8 @@ export const strings = {
   defaultInsightNum: '0',
   followersTitle: 'Followers',
   followsTitle: 'Follows',
+  login: 'Log in',
+  register: 'register',
+  rememberPassword: 'Remember Password',
+  terms: 'I agree to the Terms and Conditions',
 };
