@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
   },
   infoContainer: {
     alignItems: 'center',
-    paddingVertical: verticalScale(30),
+    paddingTop: verticalScale(10),
+    paddingBottom: verticalScale(30),
     backgroundColor: colors.white,
     borderBottomEndRadius: moderateScale(25),
     borderBottomStartRadius: moderateScale(25),

@@ -5,7 +5,8 @@ import {Container, ScreenTitle, SingleInsight} from '../../components';
 import {strings} from '../../strings';
 import {styles} from './styles';
 
-export const Profile = () => {
+export const Profile = ({route}) => {
+  const {loginUser, regUser} = route.params;
   const renderItem = ({item}) => {
     const {image} = item;
     return (
@@ -24,7 +25,9 @@ export const Profile = () => {
           style={styles.profilePicStyle}
           source={images.profile}
         />
-        <Text style={styles.userNameText}>{strings.defaultName}</Text>
+        <Text style={styles.userNameText}>
+          {loginUser || regUser || strings.defaultName}
+        </Text>
         <Text style={styles.infoText}>{strings.defaultBio}</Text>
         <Text style={styles.infoText}>{strings.defaultLocation}</Text>
         <View style={styles.detailsContainer}>
@@ -58,5 +61,9 @@ const DEMO_MODELS = [
   {
     id: 'm3',
     image: images.model3,
+  },
+  {
+    id: 'm4',
+    image: images.model1,
   },
 ];

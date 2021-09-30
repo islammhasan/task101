@@ -1,5 +1,6 @@
+import {colors} from '../assets/colors';
+
 export const navigationOptions = {
-  headerShown: false,
-  headerTitle: null,
-  headerTintColor: '#000000',
+  headerTitle: '',
+  headerTintColor: colors.main,
 };
