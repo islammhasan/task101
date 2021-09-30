@@ -1,9 +1,15 @@
 import React, {useState, useLayoutEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {Container, PrimaryButton, PrimaryInput} from '../../components';
+import {
+  Container,
+  LoginIcon,
+  PrimaryButton,
+  PrimaryInput,
+} from '../../components';
 import CheckBox from '@react-native-community/checkbox';
 import {styles} from './styles';
 import {strings} from '../../strings';
+import {images} from '../../assets/images';
 
 export const Login = ({navigation}) => {
   const [switchTabs, SetSwitchTabs] = useState(true);
@@ -61,6 +67,11 @@ export const Login = ({navigation}) => {
             {strings.register}
           </Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.socialLoginContainer}>
+        <LoginIcon img={images.facebook} />
+        <LoginIcon img={images.twitter} />
+        <LoginIcon img={images.google} />
       </View>
       {switchTabs ? (
         <View style={styles.switchContent}>

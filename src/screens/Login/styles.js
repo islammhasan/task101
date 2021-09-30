@@ -41,6 +41,12 @@ export const styles = StyleSheet.create({
     fontSize: moderateScale(16),
     paddingHorizontal: scale(5),
   },
+  socialLoginContainer: {
+    width: scale(140),
+    flexDirection: 'row',
+    marginTop: verticalScale(30),
+    justifyContent: 'space-between',
+  },
   switchContent: {
     marginTop: verticalScale(40),
     alignItems: 'center',

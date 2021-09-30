@@ -7,7 +7,7 @@ export const strings = {
   followersTitle: 'Followers',
   followsTitle: 'Follows',
   login: 'Log in',
-  register: 'register',
+  register: 'Register',
   rememberPassword: 'Remember Password',
   terms: 'I agree to the Terms and Conditions',
 };
