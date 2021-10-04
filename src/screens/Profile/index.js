@@ -6,7 +6,7 @@ import {strings} from '../../strings';
 import {styles} from './styles';
 
 export const Profile = ({route}) => {
-  const {loginUser, regUser} = route.params;
+  const {loginUser, regUser, name, imageURL} = route.params;
   const renderItem = ({item}) => {
     const {image} = item;
     return (
@@ -23,10 +23,10 @@ export const Profile = ({route}) => {
         <Image
           resizeMode="cover"
           style={styles.profilePicStyle}
-          source={images.profile}
+          source={imageURL ? {uri: `${imageURL}`} : images.profile}
         />
         <Text numberOfLines={1} style={styles.userNameText}>
-          {loginUser || regUser || strings.defaultName}
+          {loginUser || regUser || name || strings.defaultName}
         </Text>
         <Text numberOfLines={1} style={styles.infoText}>
           {strings.defaultBio}

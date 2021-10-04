@@ -10,6 +10,8 @@ import CheckBox from '@react-native-community/checkbox';
 import {styles} from './styles';
 import {strings} from '../../strings';
 import {images} from '../../assets/images';
+import auth from '@react-native-firebase/auth';
+import {LoginManager, AccessToken, Profile} from 'react-native-fbsdk-next';
 
 export const Login = ({navigation}) => {
   const [switchTabs, SetSwitchTabs] = useState(true);
@@ -48,6 +50,46 @@ export const Login = ({navigation}) => {
     }
   };
 
+  async function facebookAuth() {
+    try {
+      // Attempt login with permissions
+      const result = await LoginManager.logInWithPermissions([
+        'public_profile',
+        'email',
+      ]);
+
+      if (result.isCancelled) {
+        throw 'User cancelled the login process';
+      }
+
+      // Once signed in, get the users AccesToken
+      const data = await AccessToken.getCurrentAccessToken();
+
+      if (!data) {
+        throw 'Something went wrong obtaining access token';
+      }
+
+      // Create a Firebase credential with the AccessToken
+      const facebookCredential = auth.FacebookAuthProvider.credential(
+        data.accessToken,
+      );
+
+      // Sign-in the user with the credential
+      await auth().signInWithCredential(facebookCredential);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const signinWithFacebook = async () => {
+    facebookAuth().then(() =>
+      console.log('Signedin with Facebook!'),
+    );
+    const profileInfo = await Profile.getCurrentProfile();
+    const {name, imageURL} = profileInfo;
+    navigation.navigate('Profile', {name, imageURL});
+  };
+
   return (
     <Container style={styles.Container}>
       <View style={styles.switcherContainer}>
@@ -69,7 +111,7 @@ export const Login = ({navigation}) => {
         </TouchableOpacity>
       </View>
       <View style={styles.socialLoginContainer}>
-        <LoginIcon img={images.facebook} />
+        <LoginIcon img={images.facebook} onPress={signinWithFacebook} />
         <LoginIcon img={images.twitter} />
         <LoginIcon img={images.google} />
       </View>
